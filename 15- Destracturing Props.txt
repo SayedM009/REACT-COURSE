@@ -1,4 +1,4 @@
-Notes : use can destracturing to simplefy props
+Notes :  can use destracturing to simplefy props
 Ex :
 
 function App() {

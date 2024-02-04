@@ -5,8 +5,4 @@ To Create New Piece of State There are three steps :
 3- Update the peice of state in some event handlers.
 
 *** any REACT function starts with use it called hooks.
-*** We only can call hooks like useState( on the top level of the function.
-
-EXP :
-
-const [test, setTest] = useState(anyValue)
+*** We only can call hooks like useState( on the top level of the function. 

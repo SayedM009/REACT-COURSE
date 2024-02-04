@@ -1,0 +1,12 @@
+useEffect(function() {
+
+1- const controller = new AbortController()
+
+2- const response = await fetch(``,{signal:controller.signal})
+
+3- return function() {
+      controller.abort()
+    }
+}, [])
+
+** Kill not nessaray fetching data

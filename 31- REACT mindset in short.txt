@@ -1,0 +1,19 @@
+Thinking in REACT Way
+
+فصتق : فرق . صور . تفكر . قرر
+
+ف: فرق الواجهة الى مكونات (components) متفرقة 
+ص : صور المكونات الى واجهة ثابتة بدون حالات
+ت : تفكر فى موعد و نوع ومكان استخدام الحالة 
+ق : قرر طريقة سريان البيانات و التواصل بين المكون الابن والمكون الاب و الاتصال بالحالات العامة
+
+
+
+
+
+State Managment :
+
+1- When To Create States
+2- Type Of States
+3- Where To Place These States
+4- Decide About Data Flow Throw The App

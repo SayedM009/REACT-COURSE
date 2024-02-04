@@ -1,4 +1,4 @@
-To Update State have to use setter function because it is a functional way of updating.
+To Update State you have to use setter function because it is a functional way of updating.
 
 *** useState() always return an array
 
