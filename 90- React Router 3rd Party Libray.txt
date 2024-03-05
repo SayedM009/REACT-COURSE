@@ -1,0 +1,61 @@
+__How To Use React Router Dom:
+
+1- npm i react-router-dom
+2- use <BrowserRouter></BrowserRouter>
+3- use <Routes></Routes> Inside The Previous one
+4- use <Route path="" element={component} /> Inside The Previous one
+
+
+Expamle :
+
+<BrowserRouter>
+	<Routes>
+		<Route index element={component}/> // this will be the default page (first page)
+		<Route path="Homepage" element={component}/>
+		<Route path="about" element={component}/>
+		<Route path="*" element={component}/> // use case page not found
+	</Routes>
+</BrowserRouter>
+
+__How to go to routes:
+
+1- <Link to="/">Homepage</Link>
+A- <Link to="/about">Homepage</Link>
+
+2- <NavLink to="/">Homepage</NavLink> // but here navlink provids an active class you can pick it to custom the anchor
+A- <NavLink to="/about">Homepage</NavLink>
+
+
+__How to use nested routes
+
+1- <BrowserRouter>
+	<Routes>
+		<Route index element={component}/> // this will be the default page (first page)
+		<Route path="Homepage" element={component}/>
+		<Route path="about" element={component}> // nested routes
+			<Route path="one" element={component}/>
+			<Route path="two" element={component}/>
+		</Route>
+		<Route path="*" element={component}/> // use case page not found
+	</Routes>
+</BrowserRouter>
+
+2- Have to use <OutLet /> Component inside the place you want to should the target component
+3- Have to use <Link to=""/> or <NavLink to="" /> to redirect to that target component
+
+
+__How to use Params with react router:
+
+1- Create a new route
+
+<Route path="path/:paramName" element={component}/>
+
+2- Link to that route
+
+<Link to="paramValue" /> without slash /.
+
+3- Read the state from URL
+
+Use useParams() to get the param and use it.
+
+
