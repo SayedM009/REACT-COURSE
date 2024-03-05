@@ -1,0 +1,17 @@
+How To Use React Router Dom:
+
+1- npm i react-router-dom
+2- use <BrowserRouter></BrowserRouter>
+3- use <Routes></Routes> Inside The Previous one
+4- use <Route path="" element={component} /> Inside The Previous one
+
+
+Expamle :
+
+<BrowserRouter>
+	<Routes>
+		<Routes path="Homepage" element={component}/>
+		<Routes path="about" element={component}/>
+		<Routes path="*" element={component}/> // use case page not found
+	</Routes>
+</BrowserRouter>
