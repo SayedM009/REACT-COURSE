@@ -23,7 +23,7 @@ __How to go to routes:
 A- <Link to="/about">Homepage</Link>
 
 2- <NavLink to="/">Homepage</NavLink> // but here navlink provids an active class you can pick it to custom the anchor
-A- <NavLink to="/about">Homepage</NavLink>
+A- <NavLink to="/about">Homepage</NavLink> (Declarative)
 
 
 __How to use nested routes
@@ -56,6 +56,46 @@ __How to use Params with react router:
 
 3- Read the state from URL
 
-Use useParams() to get the param and use it.
+Use const {x} = useParams() to get the param and use it.
+
+
+__How to use quary string with react router:
+
+1- You have to follow this pattern 
+
+<Link to={`${paramValue}?quaryName=${quaryValue}&quaryName=${quaryValue}`} /> without slash /.
+
+2- To use quary string have to use
+
+const [searchParams, setSearchParams] = useSearchParams()
+
+3- Need to get the quary wtih it's name
+
+const x = searchParams.get('quaryName')
+
+4- You can update the search params
+
+setSearchParams({ paramName1: value, paramName2: value })
+
+
+__ Programmatic Navigation : move to new URL the user does not have to click on a link main use case to this behavior it after submitting a form. () (Imperative)
+
+1- You have to use useNavigate() 
+
+const navigate useNavigate();
+
+2- Use navigate with submitting form or others like events
+
+onClick={() => navigate("routeName") }
+
+3- You can use it to go back or forward also
+
+onClick={() => navigate(-1) }
+onClick={() => navigate(+1) }
+
+
+__ Programmatic Navigation : main use case when entering to nested routes it will redirect to the target () (Declarative)
+
+<Route index element={<Navigate replace to="routeName"} />
 
 
