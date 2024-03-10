@@ -1,0 +1,31 @@
+As usual to use some hooks there are 3 steps : 
+
+(Provider, value, consume)
+
+__1- First import createContext() and put it in a variable with a capital letter because it is a component;
+exp: 
+
+import {createContext} from "react"
+const NameContext = createContext()
+
+__2- Use the NameContext with the provider and wrapping the elements you want them to use the context with it and put the passing values inside the value to pass. (Provider, value)
+exp:
+
+function App() {
+	return <>
+		<NameContext.Provider value={{}}>
+			<Component />
+			<Component />
+			<Component />
+		</NameContext.Provider>
+	</>
+}
+
+__3- Consuming the context with importing useContext inside every component that needs the value and it will recieve the whole value AND put the NameContext inside useContext.
+exp: 
+
+function Component() {
+	const {value, value, value} = useContext(NameContext)
+	return ....
+
+}
