@@ -29,3 +29,48 @@ function Component() {
 	return ....
 
 }
+
+Normal Pattern to Use Context API with Sperated File
+
+- Keep in mind put every context in sperated file
+- Please follow the following pattern :
+
+import { createContext, useState, useEffect, useContext } from "react";
+
+const CitiesContext = createContext();
+
+function CitiesProvider({children}) {
+
+    const [cities, setCities] = useState([])
+    const [isLoading, setIsLoading] = useState("")
+
+    useEffect(function() {
+        async function fetching() {
+        try {
+            setIsLoading("is Loading....")
+            const cities = await fetch("http://localhost:9000/Countries")
+            const  data= await cities.json();
+            console.log(data)
+            setCities(data);
+            setIsLoading("")
+        } catch  (error) {
+            console.log(error)
+            setIsLoading("Something Went Wrong Try Again! ⛔")
+        }
+        }
+        fetching()
+    }, [])
+
+    return <CitiesContext.Provider value={{cities, isLoading}}>
+        {children}
+    </CitiesContext.Provider>
+}
+
+// Custom Hook to Consume The Context Every Where
+function useCities() {
+    const context = useContext(CitiesContext)
+    if (context === 'undefind') throw new Error("Can not  be used outside of the Cities Provider")
+    return context;
+}
+
+export {CitiesProvider, useCities}
