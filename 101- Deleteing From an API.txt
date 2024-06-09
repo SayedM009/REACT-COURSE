@@ -1,0 +1,12 @@
+async function funcName(param) {
+    try {
+    	await fetch(`http://localhost:9000/cities/${param}`, {
+        method: "DELETE"
+      });
+
+    
+      
+    } catch (error) {
+      setIsLoading("Something Went Wrong Try Again! ⛔");
+    }
+  }

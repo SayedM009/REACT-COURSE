@@ -1,0 +1,16 @@
+async function funcName(param) {
+    try {
+      const name = await fetch(`http://localhost:9000/cities`, {
+        method: "POST",  		// Post method will push to the api
+        body: JSON.stringify(param), 	// convert data to string to put it in json file
+        headers: { 			 // header the know the is the type of data came
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await cities.json();
+      
+    } catch (error) {
+      setIsLoading("Something Went Wrong Try Again! ⛔");
+    }
+  }

@@ -1,0 +1,2 @@
+1- you can use callback function inside the state value and it will run just one time on initial render.
+ 
