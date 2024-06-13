@@ -1,2 +1,4 @@
-1- you can use callback function inside the state value and it will run just one time on initial render.
+___ you can use callback function inside the state value and it will run just one time on initial render.
+
+___ When you pass any component to another component by Children if the parent re-renderd but the components you have passed by children nothing happend to it it will not re-render again and that ticneec will save some performance 
  
