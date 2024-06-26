@@ -1,0 +1,11 @@
+What is the state managment ? 
+
+When, What, Where, How,
+
+___ When to create pieces of state ? 
+
+___ What types of state are necessary ?
+
+___ Where to place each piece of state ?
+
+___ How data flows through the APP ?
