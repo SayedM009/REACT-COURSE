@@ -1,0 +1,57 @@
+1- npm create vite@latest
+2- App name
+3- React
+4- javascript
+
+
+
+__ install eslint 
+1- npm i eslint vite-plugin-eslint eslint-config-react-app --save-dev
+2- create new file called .eslintrc.json
+3- inside the file create an object 
+
+{
+	"extends":"react-app"
+}
+
+4- go to vite.config.js file then 
+
+import eslint from "vite-plugin-eslint"
+
+then type 
+
+export default defineConfig({
+	plugins:[react(), eslint()],
+})
+
+__ install react router 
+
+1- npm i react-router-dom
+2- npm i react-router-dom@5 this 5 if you want to install spacific version
+
+__ use react Router
+
+1- import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+2 - follow the same stracture
+<BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<App />}>
+    	<Route index element={<Cities />} /> =====> index here means default page
+	<Route path="countries" element={<Countries />} />
+      </Route>
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </BrowserRouter>
+3- you can use <Link to="/pathname"> freetext </Link> to navigate to link or page without any custome css class
+4- you can use <NavLink to="/pathname"> freetext </NavLink> to navigate to link or page that will give active class to the target so you can use that one
+
+___ using css module
+
+1- the same name of  the component that will use it : filename.module.css
+2- import styles from "./filename.module.css"
+3- use styles.classname
