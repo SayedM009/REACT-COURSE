@@ -1,4 +1,10 @@
 ___ you can use callback function inside the state value and it will run just one time on initial render.
 
-___ When you pass any component to another component by Children if the parent re-renderd but the components you have passed by children nothing happend to it it will not re-render again and that ticneec will save some performance 
+___ When you pass any component to another component by Children if the parent re-rendered but the components you have passed by children nothing happened to it will not re-render again and that technique will save some performance 
  
+
+___ use Effect runs after render happens that the reason will render any component twice.
+
+___ Do not create any function inside a react component if that function does not depend on any state or props.
+
+___ Use useEffect for one side effect (one reason)
