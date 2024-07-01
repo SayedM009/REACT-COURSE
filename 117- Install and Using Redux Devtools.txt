@@ -1,3 +1,56 @@
+__ Using Classic Redux :
+
+1- Create initialStateObj
+
+Exp : const initialStateObj = {
+	a : 1,
+	b: 2
+}
+
+2- Define reducer function
+
+Exp : function reducer() {
+
+}
+
+3- Passing the initialStateObj as a default value for state 
+
+Exp : function reducer(state = initialStateObj, action) {
+
+}
+
+
+4- Using different action names in new way like the what is the action does
+
+Exp : function reducer(state = initialStateObj, action) {
+	switch (action.type) {
+		case : "account/deposit" (state domain / event name)
+	}
+}
+
+5- Creating Redux store : npm install redux
+6- Using createStore method from redux : import {createStore} from "redux"
+7- Create a variable to store the createStore
+
+Exp : const store = creatStore(reducer)
+
+8- You can use dispatch as when you use useReducer before
+
+Exp : store.dispatch({type: "", payload : ""})
+
+9- To use this Redux as a complete file just go to app file and import "./store" that will run the code inside the redux file 
+
+10- To see the whole store just use store.getState()
+
+11- You can use an object inside the payload 
+
+Exp : store.dispatch({type: "blabla", payload : {amount : 500, purpose : "buy car" }}) then going to action and 
+Exp : case "blabla" :
+	return {...state, load: action.payload.amount, loanPurpose : action.payload.purpose}
+
+
+__ Redux DevTool :
+
 1- Go to google chrome and install the extension called redux devtool
 2- Go to your project and install npm i redux-devtools-extension
 
