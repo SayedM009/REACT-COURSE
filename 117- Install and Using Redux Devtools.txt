@@ -48,6 +48,28 @@ Exp : store.dispatch({type: "blabla", payload : {amount : 500, purpose : "buy ca
 Exp : case "blabla" :
 	return {...state, load: action.payload.amount, loanPurpose : action.payload.purpose}
 
+12- Action Creators : it's a convention in React comunitiy and it is  functions return actions
+ 
+Exp :
+
+function actionName (arg) { // let's call it deposit
+	return {type : "", payload : arg}
+}
+
+To use is 
+
+store.dispatch(deposit(arg))
+
+13- You have to use combineReducers to combine between multi reducers
+
+Exp: const rootReducer = combineReducers({
+	anyName : reducer01,
+	anyName : reducer02
+})
+
+then change the store with the (combineRedcuers) rootReducer to have all reducers in one 
+
+const store = createStore(rootReducer)
 
 __ Redux DevTool :
 
