@@ -1,0 +1,13 @@
+__ Code Splitting Syntax : 
+
+*** ONE OF THE MAIN CASE TO USE LAZY WHEN USING ROUTING
+
+1- import  { lazy, Suspense } from 'react';
+2- const SameComponentName = lazy(() => import('./componentfile'));
+3- wrapping the component with the Suspense component with fallback attribute
+
+exp :
+
+<Suspense fallback={any component or element}>
+	<SameComponentName />
+</Suspense>

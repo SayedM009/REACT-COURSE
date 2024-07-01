@@ -1,0 +1,5 @@
+1- Install json server by following syntax : npm i json-server
+2- create a folder has a file with extention .json like data.json
+3- type the server script to call it in package.json then go to scripts and write
+"server" : "json-server --watch folderName/filename.json --port 8000 or 9000
+4- type npm run server to run the fake api
