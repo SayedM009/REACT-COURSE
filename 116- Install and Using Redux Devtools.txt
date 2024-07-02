@@ -48,7 +48,7 @@ Exp : store.dispatch({type: "blabla", payload : {amount : 500, purpose : "buy ca
 Exp : case "blabla" :
 	return {...state, load: action.payload.amount, loanPurpose : action.payload.purpose}
 
-12- Action Creators : it's a convention in React comunitiy and it is  functions return actions
+12- Action Creators : it's a convention in React community and it is  functions return actions
  
 Exp :
 
@@ -70,6 +70,100 @@ Exp: const rootReducer = combineReducers({
 then change the store with the (combineRedcuers) rootReducer to have all reducers in one 
 
 const store = createStore(rootReducer)
+
+14- All the previous steps we were using isolated Redux but from now we will use it with React so install the following package
+
+npm i react-redux	
+
+15- import provider from react-redux and wrap the code who will consume the redux
+
+import { Provider } from "react-redux
+
+<Provider store={store}>
+
+Code ....
+
+</Provider>
+
+16- To can use the Rudux all around the app with the components you have to 
+
+- import { useSelector } from "react-redux"
+ 
+- const varName =  useSelector(store => store.anyName) // anyName refer to step number 13
+
+17- To dispatch actions to redux reducer so you need to
+
+- import {useDispatch} from "react-redux"
+- import { actionCreator } from './theFileName'
+- const dispatch = useDispatch();
+- inside and event handler user :
+
+dispatch(actionCreator(arg1, arg2, arg3))
+
+Optional 18- Legacy way to consume the data from Classic redux 
+
+- create a function mapStateProps(state) {
+	return {
+		data: state.account.data
+	}
+}
+
+
+export default connect(mapStateProps)(componentName)
+
+18- Middleware Thunks
+
+- npm i redux-thunk
+- import thunk from "redux-thunk"
+- import { applyMiddleware } from "redux"
+- const store = createStore(rootReducer, applyMiddleware(thunk))
+- will dispatch a function another meaning if we return a function redux knows that will be asyn action will excute it before dispatching anything to the store 
+
+return function(dispatch, getState) {
+	// API CALL
+	
+	const res = await fetch()
+	const data = await res.json()
+
+	
+	// Dispatch ACTION
+	dispatch({type : "", payload : data})
+}
+
+
+// New way to use Redux toolkit
+
+
+
+1- Redux Toolkit the store file // Main file
+
+- npm i @reducjs/toolkit
+- import { configureStore } from "@reducjs/toolkit"
+	- configureStore will do multiple things
+	- will combine the reducers
+	- will add the thunk middleware
+	- will setup the devTools
+
+to use it 
+
+- const store = configureStore({
+	reducer: {
+		anyName : reducer01,
+		anyName : reducer02
+	}
+})
+
+2- Slice Features 
+
+- import { createSlice } from @reducjs/toolkit : 
+	- automaticly create action creators from our reducer
+	- it makes writing reducers more easy
+	- now you can mutate the state inside reducer
+ 
+
+
+export defualt store
+
 
 __ Redux DevTool :
 
