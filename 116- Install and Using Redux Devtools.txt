@@ -119,7 +119,11 @@ export default connect(mapStateProps)(componentName)
 - const store = createStore(rootReducer, applyMiddleware(thunk))
 - will dispatch a function another meaning if we return a function redux knows that will be asyn action will excute it before dispatching anything to the store 
 
-return function(dispatch, getState) {
+export function deposit(arg1, arg2) {
+
+	// Any Code here also .....
+
+	return function(dispatch, getState) {
 	// API CALL
 	
 	const res = await fetch()
@@ -127,8 +131,10 @@ return function(dispatch, getState) {
 
 	
 	// Dispatch ACTION
-	dispatch({type : "", payload : data})
+	dispatch({type : "featureName/actionName", payload : data}) (account/deposit)
 }
+}
+
 
 
 // New way to use Redux toolkit
@@ -153,6 +159,8 @@ to use it
 	}
 })
 
+export defualt store
+
 2- Slice Features 
 
 - import { createSlice } from @reducjs/toolkit : 
@@ -160,11 +168,57 @@ to use it
 	- it makes writing reducers more easy
 	- now you can mutate the state inside reducer
  
+- const anyName = createSlice({
+	name: // feature name similar account
+	initialState, 
+	reducers : { // Here is instead of Switch statement
+		deposit(state, action) {
+			state.property = state.property - action.payload
+		},
 
+		withdraw(state, action) {
+			state.property = state.property - action.payload
+		}
+		// You can add more reducers ....
+	} 
+	
+})
 
-export defualt store
+3- To make the payload recieves more than one value you have to use prepare function from redux
 
+- const anyName = createSlice({
+	name: anyName,
+	initialState, 
+	reducers : { // Here is instead of Switch statement
+		deposit(state, action) {
+			state.property = state.property - action.payload
+		},
 
+		withdraw(state, action) {
+			state.property = state.property - action.payload
+		}
+		
+		// Using Prepare
+		withdraw : {
+			prepare(arg1, arg2) {
+				return {
+					payload : {arg1, arg2} // Here Prepare modify the payLoad to has more that one value
+				}		
+	
+			}
+			
+			reducer(state, action) {
+			state.property = state.property - action.payload
+		}}
+	
+	} 
+	
+})
+
+export const {deposit, withdraw, ...} = anyName.actions
+export default anyName.reducers
+
+4- Thunks with Redux Toolkit
 __ Redux DevTool :
 
 1- Go to google chrome and install the extension called redux devtool
