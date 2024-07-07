@@ -4,7 +4,7 @@ ___ Use effect hook runs after initial render and paint to the screen
 
 ___ Every effect returns a so-called cleanup function that function will be called before the component re-render or unmount
 
-___ Setting state is sync not Async (immediately)
+___ Setting state is Async not sync (immediately)
 
 ___ If you do not use children props in the Context API to pass the components the you have to memo all your components
 

@@ -68,3 +68,40 @@ with using <Outlet /> to show the target routing
 - the convention seems to be the place the loader for the data of a certain page inside the file of that page
 
 1`- create the loader function and get the data from fetch api
+2`- provider the loader to the routing with loader property 
+const router = createBrowserRouter([
+  {
+    element: <Applayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />, 
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
+	loader:loader
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+      },
+      {
+        path: "/order/:orderId",
+        element: <Order />,
+      },
+    ],
+  },
+]);
+
+3`- import {useLoaderData} from "react-router-dom" then inside the component that will use the data came from the loader 
+
+const anyName = useLoaderData()
+
+5- How to display a loader over the whole page content there is a property inside the useNavigation called state that state change depends on the status of the conent 
+
+if you make render logic when state === 'loading' you can render any loader component as you want 
