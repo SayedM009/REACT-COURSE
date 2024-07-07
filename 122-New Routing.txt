@@ -1,0 +1,70 @@
+__There is a new way to use Routing 
+
+1- npm install react-router-dom
+2- import { createBrowserRouter, RouterProvider } from "react-router-dom";
+3- Direct Routing const router = createBrowserRouter([
+  {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+      },
+      {
+        path: "/order/:orderId",
+        element: <Order />,
+      },
+]);
+
+4- Nested Routing 
+const router = createBrowserRouter([
+  {
+    element: <Applayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+      },
+      {
+        path: "/order/:orderId",
+        element: <Order />,
+      },
+    ],
+  },
+]);
+
+with using <Outlet /> to show the target routing
+
+5- function App() {
+  return <RouterProvider router={router} />;
+}
+
+6- Fetching Data with React Router 
+
+- create the loader
+- provider the loader 
+- provider the data for the page
+- the convention seems to be the place the loader for the data of a certain page inside the file of that page
+
+1`- create the loader function and get the data from fetch api
