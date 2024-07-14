@@ -105,3 +105,10 @@ const anyName = useLoaderData()
 5- How to display a loader over the whole page content there is a property inside the useNavigation called state that state change depends on the status of the conent 
 
 if you make render logic when state === 'loading' you can render any loader component as you want 
+
+
+7- Getting params with react router inside the loader function put a prameter called params then used it as the following:
+
+funciton loader({params}) {
+	// then you can use the params like params.paramName like params.orderId
+}
