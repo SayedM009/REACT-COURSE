@@ -106,9 +106,50 @@ const anyName = useLoaderData()
 
 if you make render logic when state === 'loading' you can render any loader component as you want 
 
+<<<<<<< HEAD
 
 7- Getting params with react router inside the loader function put a prameter called params then used it as the following:
 
 funciton loader({params}) {
 	// then you can use the params like params.paramName like params.orderId
 }
+=======
+6- Error Handling with new Routing 
+
+const router = createBrowserRouter([
+  {
+    element: <Applayout />,
+    errorElement : <Error /> // will display an error message if anything happened for anypages (global)
+    children: [
+      {
+        path: "/",
+        element: <Home />, 
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
+	loader:loader,
+	errorElement : <Error /> // will display an error message if anything happened for fetching data to the specific page here it's menu page (local)
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+      },
+      {
+        path: "/order/:orderId",
+        element: <Order />,
+      },
+    ],
+  },
+]);
+
+then inside the the error component there is an customHook called useRouterError()
+
+const error = useRouterError()
+
+error.data || error.message // to display the Error message
+>>>>>>> 1a5985ab0f4a337264120f3ede9450722520bd36
