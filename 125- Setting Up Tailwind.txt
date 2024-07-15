@@ -1,0 +1,20 @@
+Installing TailWind
+
+1- npm install -D tailwindcss postcss autoprefixer
+2- npx tailwindcss init -p
+3- Open tailwind.config.js then replace the content array with this array 
+[
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+4- go to index.css and put these lines 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+5- install the extension for VS Tailwind
+6- install the tailwind prettier extension for Tailwind with the code npm install -D prettier prettier-plugin-tailwindcss
+7- create a file called .prettierrc and put this code inside it	{
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
