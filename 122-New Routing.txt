@@ -144,3 +144,76 @@ then inside the the error component there is an customHook called useRouterError
 const error = useRouterError()
 
 error.data || error.message // to display the Error message
+
+999- actions can use it to write data or muitate data with react router to server
+	- First you have to use a Form component that react router provides it you can use post , patch or delete 	these only methods you can use here not get, it will not work. you can use action to where will write the 	path but it is not necessary react router will automatically match the action with the closest path
+	
+	Exp : 
+		<Form method="POST" action="path"></Form>
+
+	- Create an action it's a function 
+	Exp :
+		export async function action({request}) {
+			const formData = await request.formData() // formData it's a webAPi providered by the browser
+		
+		}
+
+	- connect the action with the route
+	Exp: 
+		import {action as createAction} from "filename"
+		const router = createBrowserRouter([
+  {
+    element: <Applayout />,
+    errorElement : <Error /> // will display an error message if anything happened for anypages (global)
+    children: [
+      {
+        path: "/",
+        element: <Home />, 
+      },
+      {
+        path: "/menu",
+        element: <Menu />,
+	loader:loader,
+	errorElement : <Error /> // will display an error message if anything happened for fetching data to the specific page here it's menu page (local)
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/order/new",
+        element: <CreateOrder />,
+	action : createAction
+      },
+      {
+        path: "/order/:orderId",
+        element: <Order />,
+      },
+    ],
+  },
+]);
+	- To see the formData use 
+	Exp :
+		export async function action({request}) {
+			const formData = await request.formData() // formData it's a webAPi providered by the browser
+			const data = Object.fromEntries(formData)
+		
+		
+			return null
+		}
+
+	- To can getting some data and pass it into the action with hidden input
+	Exp: 
+		<input type="hidden" name="cart" value={data} />
+
+	- Now you can use the function who can make a request to the api here you can not use hooks because it's a regular function not a component so you have to use another function called redirect()
+	Exp :
+		export async function action({request}) {
+			const formData = await request.formData() // formData it's a webAPi providered by the browser
+			const data = Object.fromEntries(formData)
+			const newOrder = await createOrder(data)
+
+		
+			return redirect(`/order/${newOrder.id}`)
+		}
+	
