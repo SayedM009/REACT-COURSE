@@ -1,4 +1,4 @@
-__ Using Classic Redux :
+ __ Using Classic Redux :
 
 1- Create initialStateObj
 

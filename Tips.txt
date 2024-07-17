@@ -1,4 +1,4 @@
-___ Component function should be pure function does not have any side effect inside it directly 
+   ___ Component function should be pure function does not have any side effect inside it directly 
 
 ___ Use effect hook runs after initial render and paint to the screen
 

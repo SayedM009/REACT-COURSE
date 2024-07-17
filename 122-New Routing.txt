@@ -102,19 +102,19 @@ const router = createBrowserRouter([
 
 const anyName = useLoaderData()
 
-5- How to display a loader over the whole page content there is a property inside the useNavigation called state that state change depends on the status of the conent 
+5- How to display a loader over the whole page content there is a property inside the useNavigation called state that state change depends on the state of the conent 
 
 if you make render logic when state === 'loading' you can render any loader component as you want 
 
 <<<<<<< HEAD
 
-7- Getting params with react router inside the loader function put a prameter called params then used it as the following:
+6- Getting params with react router inside the loader function put a prameter called params then used it as the following:
 
 funciton loader({params}) {
 	// then you can use the params like params.paramName like params.orderId
 }
 =======
-6- Error Handling with new Routing 
+7- Error Handling with new Routing 
 
 const router = createBrowserRouter([
   {
@@ -154,8 +154,8 @@ const error = useRouterError()
 error.data || error.message // to display the Error message
 <<<<<<< HEAD
 
-999- actions can use it to write data or muitate data with react router to server
-	- First you have to use a Form component that react router provides it you can use post , patch or delete 	these only methods you can use here not get, it will not work. you can use action to where will write the 	path but it is not necessary react router will automatically match the action with the closest path
+8- actions can use it to write data or muitate data with react router to server
+	- First you have to use a Form component that react router provides it you can use post , patch or delete these only methods you can use here not get, it will not work. you can use action to where will write the 	path but it is not necessary react router will automatically match the action with the closest path
 	
 	Exp : 
 		<Form method="POST" action="path"></Form>
@@ -227,5 +227,8 @@ error.data || error.message // to display the Error message
 		}
 	
 =======
->>>>>>> 1a5985ab0f4a337264120f3ede9450722520bd36
->>>>>>> 2eec92736fe07842285a2700f1f549f59e0929fd
+
+9- use can useNavigation() to handle something during the submitting 
+	const isSubmitting = useNavigation.status === "submitting"
+
+

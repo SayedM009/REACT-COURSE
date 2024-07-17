@@ -1,0 +1,14 @@
+1- go to the index.css
+
+2- create @layer components {}
+
+3- apply the classes together with anyname
+
+@layer components {
+	.anyName {
+		@apply w-full rounded-full border .....
+	}
+}
+
+4- then you can use anyName as a regular class but do not follow the way all the way
+
