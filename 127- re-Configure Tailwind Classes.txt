@@ -1,0 +1,13 @@
+__ To re-config the Tailwind classes first you can go to tailwind.config.js
+
+__ If you to overwrite on all classes you can write your class into theme
+
+__ If you want to add a classes with the existed classes just put it in extend 
+
+The Way to add Classes :
+
+tailwind css property name || height   : {
+	className : 'value',
+}
+
+__ you can check the configuration for Tailwind
