@@ -224,3 +224,34 @@ __ Redux DevTool :
 1- Go to google chrome and install the extension called redux devtool
 2- Go to your project and install npm i redux-devtools-extension
 
+
+5- new middleware Thunks with Redux toolkit 
+
+const x = creataAsyncThunk('slice/actionName', async function() { // action name (user/fetchPosition)
+
+})
+
+1`- x will be an action creator function
+2`- that async function will return the payload of fulfilled state for the reducer 
+3`- creataAsyncThunk() produces 3 additional action types (pending, fulfiled state, rejected state)
+4`- link it with the reducer 
+
+const initialState = {
+	status : "idle",
+	position : {},
+	address : "",
+	error : ""
+}
+
+- const anyName = createSlice({
+	name: ""s
+	initialState, 
+	reducers : { // Here is instead of Switch statement
+		deposit(state, action) {
+			state.property = state.property - action.payload
+			}
+		},
+	extraReducers : (builder) => builder.addCase(x.pending, (state, action) => {state.status = "loading"})
+			.builder.addCase(x.fulfilled, (state, action) => {state.status = "idle"; state.position = action.payload.position ....})				.builder.addCase(x.rejected, (state, action) => {state.status = "error" state.error = action.error.message})
+	
+})
