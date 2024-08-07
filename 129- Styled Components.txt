@@ -1,0 +1,33 @@
+__ You can make style components by create a new component that we can use it instead of the html tag but as you know the first letter should be capital that outside the main component 
+
+import {styled} from "styled-components"
+Syntax : const H1 = styled.h1`
+	font-size : 20px;
+	background : red
+	&:hover { // in this way to can use hover
+		background:blue
+	}
+`
+
+export default App() {
+	return <>
+			<GlobalStyle />
+			<H1>Hello world</H1>
+			
+		</>
+}
+
+
+___ To create a global styles with styled component then but it next to that component that you want to use it like the above example to allow the new component to have assess to the global styles
+
+import {createGloblaStyle} from "styled-components"
+
+export default const GlobalStyle = createGloblaStyle`
+	font-family:Arial,
+	font-weight:bold
+
+`
+
+___ To defind a default props inside the styled component 
+
+Syntax : ComponentName.defaultProps = {name : value}

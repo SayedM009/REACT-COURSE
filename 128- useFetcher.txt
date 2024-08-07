@@ -1,0 +1,1 @@
+___ You can useFetcher to fetch data from another route without going there 
